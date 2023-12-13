@@ -34,3 +34,33 @@ else
    }
 }
 
+
+//declaracion de una matriz
+/*string[] fraudulentOrderIDs = new string[3];
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+//fraudulentOrderIDs[3] = "D000";
+
+Console.WriteLine($"first: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"third: {fraudulentOrderIDs[2]}");
+
+//Reasignación del valor de una matriz
+
+fraudulentOrderIDs[0] = "F000";
+Console.WriteLine($"Reasing first: {fraudulentOrderIDs[0]}");*/
+
+//Inicialización de una matriz
+
+string[] fraudulentOrderIDs = { "A123", "C456", "C789" };
+Console.WriteLine($"first: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"third: {fraudulentOrderIDs[2]}");
+
+fraudulentOrderIDs[0] = "F000";
+Console.WriteLine($"Reasing first: {fraudulentOrderIDs[0]}");
+
+//Uso de la propiedad Length de una matriz
+
+Console.WriteLine($"encontramos {fraudulentOrderIDs.Length} fraudes en proceso");
