@@ -1,0 +1,25 @@
+# .gitignore para proyectos C#
+
+# Carpeta bin y obj generada por Visual Studio
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Carpeta de salida del compilador
+out/
+
+# Carpeta de dependencias NuGet
+packages/
+
+# Archivos de configuración personal
+*.vscode/
+*.vs2019/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
