@@ -1,5 +1,7 @@
 //Le han pedido que agregue una característica al software de su empresa. La característica está pensada para mejorar la tasa de renovación de las suscripciones al software. Su tarea consiste en mostrar un mensaje de renovación cuando un usuario inicia sesión en el sistema de software y se notifica que su suscripción finaliza pronto. Para cumplir los requisitos, necesitará agregar un par de instrucciones de decisión para agregar lógica de rama a la aplicación.
 
+using System.Threading.Tasks.Dataflow;
+
 Random random = new Random();
 //dias hasta el vencimiento
 int daysUntilExpiration = random.Next(12);
@@ -64,3 +66,21 @@ Console.WriteLine($"Reasing first: {fraudulentOrderIDs[0]}");
 //Uso de la propiedad Length de una matriz
 
 Console.WriteLine($"encontramos {fraudulentOrderIDs.Length} fraudes en proceso");
+
+//Recorrido en bucle de una matriz con "foreach"
+
+string[] names = { "Robin", "Clarck", "Vin" };
+foreach (string name in names)
+{
+   Console.WriteLine(name);
+}
+
+//Crear e inicializar una matriz de números enteros (int).
+int sum = 0;
+int[] inventory = { 200, 450, 700, 175, 250 };
+foreach (int items in inventory)
+{
+   sum += items;
+}
+
+Console.WriteLine($"tienen {sum} de inventario");
