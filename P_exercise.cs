@@ -1,5 +1,5 @@
 //Le han pedido que agregue una característica al software de su empresa. La característica está pensada para mejorar la tasa de renovación de las suscripciones al software. Su tarea consiste en mostrar un mensaje de renovación cuando un usuario inicia sesión en el sistema de software y se notifica que su suscripción finaliza pronto. Para cumplir los requisitos, necesitará agregar un par de instrucciones de decisión para agregar lógica de rama a la aplicación.
-
+/*
 using System.Threading.Tasks.Dataflow;
 
 Random random = new Random();
@@ -54,7 +54,7 @@ fraudulentOrderIDs[0] = "F000";
 Console.WriteLine($"Reasing first: {fraudulentOrderIDs[0]}");*/
 
 //Inicialización de una matriz
-
+/*
 string[] fraudulentOrderIDs = { "A123", "C456", "C789" };
 Console.WriteLine($"first: {fraudulentOrderIDs[0]}");
 Console.WriteLine($"second: {fraudulentOrderIDs[1]}");
@@ -99,7 +99,7 @@ foreach (string ids in idsFraudulent)
    {
       Console.WriteLine(ids);
    }
-}
+}*/
 
 //Creación y uso de comentarios de código
 /*
@@ -156,6 +156,7 @@ foreach (var orderID in orderIds)
   constan de una letra de la A a la E, y tres
   dígito. Ex. A123.
 */
+/*
 Random randomm = new Random();
 string[] orderIDs = new string[5];
 
@@ -181,7 +182,7 @@ foreach (var orderID in orderIDs)
    to the console window.
  */
 
-string originalMessage = "The quick brown fox jumps over the lazy dog.";
+/*string originalMessage = "The quick brown fox jumps over the lazy dog.";
 
 char[] message = originalMessage.ToCharArray();
 Array.Reverse(message);
@@ -201,4 +202,4 @@ string newMessage = new String(message);
 Console.WriteLine(newMessage);
 Console.WriteLine($"'o' appears {letterCount} times.");
 
-
+*/
