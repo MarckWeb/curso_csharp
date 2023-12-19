@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Reflection.Metadata;
 
 // El array ourAnimals almacenará la siguiente información:
@@ -8,14 +9,16 @@ string animalAge = "";
 string animalPhysicalDescription = "";
 string animalPersonalityDescription = "";
 string animalNickname = "";
+string suggestedDonation = "";
 
 // Variables que admiten la entrada de datos
 int maxPets = 8;
 string? readResult;
 string menuSelection = "";
+decimal decimalDonation = 0.00m;
 
 // Array utilizado para almacenar datos en tiempo de ejecución, no hay datos persistentes
-string[,] ourAnimals = new string[maxPets, 6];
+string[,] ourAnimals = new string[maxPets, 7];
 
 // Crear algunas entradas iniciales en el array ourAnimals
 for (int i = 0; i < maxPets; i++)
@@ -29,6 +32,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "tamaño mediano, hembra de color crema, golden retriever que pesa alrededor de 65 libras. Adiestrada para ir al baño.";
             animalPersonalityDescription = "le encanta que le acaricien la barriga y le gusta perseguir su cola. Da muchos besos.";
             animalNickname = "lola";
+            suggestedDonation = "85,00";
             break;
 
         case 1:
@@ -38,6 +42,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "grande, macho de color marrón rojizo, golden retriever que pesa alrededor de 85 libras. Adiestrado para ir al baño.";
             animalPersonalityDescription = "le encanta que le acaricien las orejas cuando te saluda en la puerta, ¡o en cualquier momento! Le encanta inclinarse y dar abrazos de perro.";
             animalNickname = "loki";
+            suggestedDonation = "49,99";
             break;
 
         case 2:
@@ -47,6 +52,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "pequeña hembra blanca que pesa alrededor de 8 libras. Entrenada para usar la caja de arena.";
             animalPersonalityDescription = "amigable";
             animalNickname = "Puss";
+            suggestedDonation = "40,00";
             break;
 
         case 3:
@@ -56,6 +62,7 @@ for (int i = 0; i < maxPets; i++)
             animalPhysicalDescription = "";
             animalPersonalityDescription = "";
             animalNickname = "";
+            suggestedDonation = "";
             break;
 
         default:
@@ -74,6 +81,14 @@ for (int i = 0; i < maxPets; i++)
     ourAnimals[i, 3] = "Apodo: " + animalNickname;
     ourAnimals[i, 4] = "Descripción física: " + animalPhysicalDescription;
     ourAnimals[i, 5] = "Personalidad: " + animalPersonalityDescription;
+
+
+    //ourAnimals[i, 6] = "Suggested Donation: " + suggestedDonation;
+    if (!decimal.TryParse(suggestedDonation, out decimalDonation))
+    {
+        decimalDonation = 45.00m; // if suggestedDonation NOT a number, default to 45.00
+    }
+    ourAnimals[i, 6] = $"Suggested Donation: {decimalDonation:C2}";
 }
 
 do
@@ -81,17 +96,6 @@ do
     // Mostrar las opciones del menú principal
 
     Console.Clear();
-
-    /*
-    Enumere toda la información de mascotas de la que disponemos actualmente.
-    Asigne valores a los campos de la matriz ourAnimals.
-    Asegúrese de que las edades y las descripciones físicas de los animales estén completas.
-    Asegúrese de que los apodos y las descripciones de personalidad de los animales estén completos.
-    Edite la edad de un animal.
-    Edite la descripción de personalidad de un animal.
-    Muestre todos los gatos con una característica especificada.
-    Muestre todos los perros con una característica especificada.
-    */
 
     Console.WriteLine("Bienvenido a la aplicación Contoso PetFriends. Sus opciones principales del menú son:");
     Console.WriteLine(" 1. Listar toda nuestra información actual de mascotas");
@@ -124,7 +128,7 @@ do
                 if (ourAnimals[i, 0] != "ID #: ")
                 {
                     Console.WriteLine();
-                    for (int j = 0; j < 6; j++)
+                    for (int j = 0; j < 7; j++)
                     {
                         Console.WriteLine(ourAnimals[i, j]);
                     }
@@ -412,15 +416,125 @@ do
             break;
 
         case "7":
-            // Mostrar todos los gatos con una característica especificada
-            Console.WriteLine("EN CONSTRUCCIÓN: vuelva a consultar el próximo mes para ver el progreso.");
+            // Mostrar todos los perros con una característica especificada
+            string dogCharacteristic = "";
+
+            while (dogCharacteristic == "")
+            {
+                //ingresar el fisico o caracterista del animal
+                Console.WriteLine($"\nIngresa una caracteristica para buscar el perro deseado:");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    dogCharacteristic = readResult.ToLower().Trim();
+                    Console.WriteLine();
+                }
+            }
+
+            string[] dogSearches = dogCharacteristic.Split(",");
+            for (int i = 0; i < dogSearches.Length; i++)
+            {
+                dogSearches[i] = dogSearches[i].Trim();
+            }
+            Array.Sort(dogSearches);
+
+            //actualizar la animaciond e rotacion
+            string[] searchingIcons = { " |", " /", "--", " \\", " *" };
+
+            bool matchesAnyDog = false;
+            string dogDescription = "";
+            //actualizar la animaciond e rotacion
+            //string[] searchingIcons = { ".  ", ".. ", "..." };
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 1].Contains("perro"))
+                {
+                    // Buscar descripciones combinadas e informar resultados
+                    dogDescription = ourAnimals[i, 4] + "\r\n" + ourAnimals[i, 5];
+                    bool matchesCurrentDog = false;
+
+                    foreach (string term in dogSearches)
+                    {
+
+                        // solo busca si hay un término para buscar
+                        if (term != null && term.Trim() != "")
+                        {
+                            for (int j = 2; j > -1; j--)
+                            {
+                                // #5 actualiza el mensaje "buscando" para mostrar la cuenta regresiva
+                                foreach (string icon in searchingIcons)
+                                {
+                                    Console.Write($"\rbuscando en nuestro perro  {ourAnimals[i, 3]} por {term.Trim()} {icon} {j.ToString()}");
+                                    Thread.Sleep(100);
+                                }
+
+                                Console.Write($"\r{new String(' ', Console.BufferWidth)}");
+                            }
+                            if (dogDescription.Contains(" " + term.Trim() + " "))
+                            {
+                                //#3b mensaje de actualización  para reflejar la coincidencia del término de búsqueda actual
+
+                                Console.WriteLine($"\nNuestro perro {ourAnimals[i, 3]} es una coincidencia {term.Trim()}");
+                                matchesCurrentDog = true;
+                                matchesAnyDog = true;
+                            }
+                        }
+                    }
+
+                    if (matchesCurrentDog)
+                    {
+                        Console.WriteLine($"\r{ourAnimals[i, 3]} ({ourAnimals[i, 0]})\n{dogDescription}\n");
+                    }
+                }
+            }
+
+            if (!matchesAnyDog)
+            {
+                Console.WriteLine("Ninguno de nuestros perros es compatible con: " + dogCharacteristic);
+            }
             Console.WriteLine("Presione la tecla Enter para continuar.");
             readResult = Console.ReadLine();
             break;
 
         case "8":
-            // Mostrar todos los gatos con una característica especificada
-            Console.WriteLine("EN CONSTRUCCIÓN: vuelva a consultar el próximo mes para ver el progreso.");
+            // Mostrar todos los perros con una característica especificada
+            string catCharacteristic = "";
+            string catDescription = "";
+            bool noMatchesCat = true;
+            while (catCharacteristic == "")
+            {
+                //ingresar el fisico o caracterista del animal
+                Console.WriteLine($"\nIngresa una caracteristica para buscar el gato deseado:");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    catCharacteristic = readResult.ToLower().Trim();
+                }
+            }
+
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 1].Contains("gato"))
+                {
+                    catDescription = ourAnimals[i, 4] + "\n" + ourAnimals[i, 5];
+                    if (catDescription.Contains(catCharacteristic))
+                    {
+
+                        Console.WriteLine($"\nNuestro gato {ourAnimals[i, 3]} es una coincidencia");
+                        Console.WriteLine(catDescription);
+
+                        noMatchesCat = false;
+                    }
+
+                }
+            }
+
+            if (noMatchesCat)
+            {
+                Console.WriteLine("Ninguno de nuestros gatos es compatible con: " + catCharacteristic);
+            }
             Console.WriteLine("Presione la tecla Enter para continuar.");
             readResult = Console.ReadLine();
             break;
