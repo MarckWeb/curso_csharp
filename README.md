@@ -14,12 +14,6 @@ Este repositorio contiene ejercicios y prácticas que he realizado mientras apre
 - [.NET Core SDK](https://dotnet.microsoft.com/download) instalado
 - Un entorno de desarrollo integrado (IDE) compatible con C# (como Visual Studio, Visual Studio Code, etc.)
 
-## Instrucciones de Uso
-
-1. Clona este repositorio: `git clone https://github.com/tu-usuario/repo-csharp-aprendizaje.git`
-2. Explora los diferentes directorios y selecciona el área que te interese.
-3. Abre los archivos en tu IDE para revisar el código y comprender los conceptos.
-
 ## Contribuciones
 
 ¡Siéntete libre de contribuir! Si encuentras errores, tienes sugerencias o deseas agregar más ejercicios, ¡no dudes en abrir un problema o enviar una solicitud de extracción!
