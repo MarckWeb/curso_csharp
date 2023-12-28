@@ -9,11 +9,6 @@ Este repositorio contiene ejercicios y prácticas que he realizado mientras apre
 - **Estructuras de Control:** Ejercicios sobre if, switch, bucles, etc.
 - **Programación Orientada a Objetos:** Ejemplos que exploran la programación orientada a objetos en C#.
 
-- ## Requisitos
-
-- [.NET Core SDK](https://dotnet.microsoft.com/download) instalado
-- Un entorno de desarrollo integrado (IDE) compatible con C# (como Visual Studio, Visual Studio Code, etc.)
-
 ## Contribuciones
 
 ¡Siéntete libre de contribuir! Si encuentras errores, tienes sugerencias o deseas agregar más ejercicios, ¡no dudes en abrir un problema o enviar una solicitud de extracción!
