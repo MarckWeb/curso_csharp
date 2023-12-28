@@ -52,7 +52,6 @@ foreach (int number in numbers)
 Console.WriteLine($"Total: {total}");
 
 //switch cs
-
 var fruit = "";
 switch (fruit)
 {
@@ -70,12 +69,10 @@ switch (fruit)
 }
 
 //exerscise switch
-
 int employeeLevel = 100;
 string employeeName = "Jhon Smith";
 
 string title = "";
-
 switch (employeeLevel)
 {
    case 100:
