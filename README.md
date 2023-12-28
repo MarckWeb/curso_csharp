@@ -22,5 +22,3 @@ Este repositorio contiene ejercicios y prácticas que he realizado mientras apre
 
 - Estos ejercicios son parte de mi proceso de aprendizaje. Pueden contener errores y no necesariamente siguen las mejores prácticas de programación.
 
-## Licencia
-
