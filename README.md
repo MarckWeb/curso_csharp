@@ -6,7 +6,7 @@
 ## Estructura del Repositorio
 
 1. **Conceptos Básicos:** Este directorio contiene ejemplos y prácticas relacionadas con los fundamentos esenciales de C#.
-2. **Estructuras de Control:** Aquí encontrarás ejercicios que abordan temas como `if`, `switch`, bucles, y otras estructuras de control de flujo.
+2. **Estructuras de Control:** Aquí encontrarás ejercicios que abordan temas como variables, condicionales, bucles, y otras estructuras de control de flujo.
 
 
 ## Recursos Útiles
